@@ -2,3 +2,5 @@
 */.ipynb_checkpoints/
 .ipynb_checkpoints/
 
+# Too large datasets
+./02_pretrain/tokenizer/dataset/training_texts.txt
