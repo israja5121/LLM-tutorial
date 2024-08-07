@@ -26,3 +26,4 @@ $ CUDA_VISIBLE_DEVICES='0,1,2,3,4,5,6,7' python3 run_clm.py  --train_file ./data
 **--overwrite_output_dir**          output directory에 train 결과를 overwrite 할 것인지 선택 \
 \
 (**중요!** Training을 끊고 재개할 때 overwrite_output_dir를 False로 지정해야 checkpoint부터 시작할 수 있다. True로 재개하면 처음부터 다시 시작. 처음 시작할 때는 True를 사용하고, 이후 끊고 재개할 때는 False로 바꾸어 줄 것.)
+
