@@ -1,0 +1,18 @@
+python src/train.py \
+    --seed=0 \
+    --data_dir="data" \
+    --train_prefix="train" \
+    --valid_prefix="valid" \
+    --model_type="dbmdz/german-gpt2" \
+    --bos_token="<bos>" \
+    --sp1_token="<sp1>" \
+    --sp2_token="<sp2>" \
+    --gpu="0" \
+    --lr=2e-5 \
+    --warmup_ratio=0.0 \
+    --num_workers=0 \
+    --num_epochs=5 \
+    --max_len=1024 \
+    --max_turns=5 \
+    --batch_size=8 \
+    --ckpt_dir="saved_models"
