@@ -1,6 +1,7 @@
 # for jupyter notebook
 */.ipynb_checkpoints/
 .ipynb_checkpoints/
+*/logs/
 
 # Too large datasets
 ./02_pretrain/tokenizer/dataset/training_texts.txt

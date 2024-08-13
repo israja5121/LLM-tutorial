@@ -1,4 +1,4 @@
-# Pre-Training 개요
+# Pre-Training
 
 Pre-Training은 Fine-Tuning 이전에 Language Model의 성능을 향상시키기 위한 작업입니다. Fine-Tuning과는 다르게 Corpus, 즉 말뭉치들을 넣어서 성능을 향상시키는 것이 특징입니다. 따로 label이 없기 때문에 Unsupervised Learning 이라고 부릅니다.
 
