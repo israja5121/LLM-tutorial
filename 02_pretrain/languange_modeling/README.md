@@ -1,6 +1,6 @@
 # CausalLanguageModeling
-\
-run_clm.py를 사용할 때 쓰는 parameter를 설명합니다. \
+
+run_clm.py를 사용할 때 쓰는 parameter를 설명합니다. 
 
 **예시**
 

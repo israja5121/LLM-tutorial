@@ -27,7 +27,6 @@ class Trainer():
         
         # Tokenizer & Vocab
         print("Loading the tokenizer...")
-        #self.tokenizer = AutoTokenizer.from_pretrained("/home/sslunder24/project/chatbot/koreanmulti/mymodel/")
         self.tokenizer = AutoTokenizer.from_pretrained(self.args.model_type)
         special_tokens = {
             'bos_token': self.args.bos_token,
@@ -46,7 +45,6 @@ class Trainer():
         print("Loading the model...")
         self.fix_seed(self.args.seed)
         
-        #self.model = GPT2LMHeadModel.from_pretrained("/home/sslunder24/project/chatbot/koreanmulti/mymodel/").to(self.args.device)
         self.model = GPT2LMHeadModel.from_pretrained(self.args.model_type).to(self.args.device)
         
         
