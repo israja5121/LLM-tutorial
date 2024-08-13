@@ -10,15 +10,15 @@ Transformer 모델에 대해서 배우셨다면, tokenizer 의 존재도 이해�
 
 tokenizer을 train할 때 주목할 것은 vocab.json 과 `merge.txt` 입니다. 처음에 tokenizer는 문장을 음절 단위로 해체합니다. “안녕하세요.” 를 예로 들어보겠습니다.
 
-<center>[‘안’, ‘녕’, ‘하’, ‘세’, ‘요’]</center> <br>
+<p align="center">[‘안’, ‘녕’, ‘하’, ‘세’, ‘요’]</p> <br>
 
 이후에 `merge.txt`가 이 분리된 음절들을 vocab.json에 있는 단어로 뭉칩니다. 뭉치는 기준은 이전에 train 하는 과정에서 학습된 것입니다. 자주 마주쳤던 단어들을 위주로 뭉치게 될 것입니다. 여기서는 ‘안녕’과 ‘하세요’가 뭉칠 가능성이 큽니다. (혹은 `merge.txt`에 ‘안녕하세요’ 도 있다면 ‘안녕하세요’가 한 vocab이 되는 것입니다.)
 
-<center>[‘안녕’, ‘하세요’]</center> <br>
+<p align="center">[‘안녕’, ‘하세요’]</p> <br>
 
 이렇게 되면 이 두 단어들은 vocab.json에 존재하는 단어입니다. 그렇다면 이 vocab들을 찾아서 token id로 바꿔줍니다.
 
-<center>[2312, 40203]</center> <br>
+<p align="center">[2312, 40203]</p> <br>
 
 Tokenizer을 얼마나 train 해야 하는지 궁금하실 수 있습니다. 어느 정도로 train 해야 하는가에 대해 정확히 기준이 있지는 않지만, GPT-2의 경우 Vocab size는 약  50000개를 기준으로 했을 때, huggingface에서 제시한 traininng dataset의 size는 약 [16MB 였습니다](https://colab.research.google.com/github/huggingface/notebooks/blob/master/examples/tokenizer_training.ipynb#scrollTo=ulliiRU8pGN6).
 
