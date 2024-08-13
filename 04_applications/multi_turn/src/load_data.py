@@ -17,34 +17,28 @@ def merge_data(tokenizer, args):
     valid_dialogues = []
     num_train = 0
     num_valid = 0
-    # for data_name in dataset_list:
-    #     print(f"Processing {data_name}...")
-    #     if data_name == 'daily_dialog':
-    #         part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_daily(tokenizer, args.train_frac)
-    #     elif data_name == 'empathetic_dialogues':
-    #         part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_empathetic(tokenizer, args.train_frac)
-    #     elif data_name == 'persona_chat':
-    #         part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_persona(tokenizer, args.train_frac)
-    #     elif data_name == 'blended_skill_talk':
-    #         part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_blended(tokenizer, args.train_frac)
+    for data_name in dataset_list:
+        print(f"Processing {data_name}...")
+        if data_name == 'daily_dialog':
+            part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_daily(tokenizer, args.train_frac)
+        elif data_name == 'empathetic_dialogues':
+            part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_empathetic(tokenizer, args.train_frac)
+        elif data_name == 'persona_chat':
+            part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_persona(tokenizer, args.train_frac)
+        elif data_name == 'blended_skill_talk':
+            part_train_dialogues, part_valid_dialogues, part_num_train, part_num_valid = load_blended(tokenizer, args.train_frac)
         
-    #     train_dialogues += part_train_dialogues
-    #     valid_dialogues += part_valid_dialogues
+        train_dialogues += part_train_dialogues
+        valid_dialogues += part_valid_dialogues
     
-    #     print("#"*50 + f"Analysis on {data_name}" + "#"*50)
-    #     print(f"The number of train dialogues: {len(part_train_dialogues)}")
-    #     print(f"The number of valid dialogues: {len(part_valid_dialogues)}")    
-    #     print(f"The number of train utterances: {part_num_train}")    
-    #     print(f"The number of valid utterances: {part_num_valid}")
+        print("#"*50 + f"Analysis on {data_name}" + "#"*50)
+        print(f"The number of train dialogues: {len(part_train_dialogues)}")
+        print(f"The number of valid dialogues: {len(part_valid_dialogues)}")    
+        print(f"The number of train utterances: {part_num_train}")    
+        print(f"The number of valid utterances: {part_num_valid}")
         
-    #     num_train += part_num_train
-    #     num_valid += part_num_valid
-        
-
-    with open('/home/sslunder24/project/chatbot/koreanmulti/data/myprecious/train_utters.json', 'r') as f:
-        train_dialogues = json.load(f)
-    with open('/home/sslunder24/project/chatbot/koreanmulti/data/myprecious/valid_utters.json', 'r') as f:
-        valid_dialogues = json.load(f)
+        num_train += part_num_train
+        num_valid += part_num_valid
 
     num_train = len(train_dialogues)
     num_valid = len(train_dialogues)

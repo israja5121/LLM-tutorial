@@ -25,20 +25,6 @@ silence_symbol = "__ SILENCE __"
 device = torch.device(f"cuda:0")
 
 
-################################################################
-de_tokenizer = FSMTTokenizer.from_pretrained('facebook/wmt19-en-de')
-de_model = FSMTForConditionalGeneration.from_pretrained('facebook/wmt19-en-de').to(device)
-
-
-def translate(text):
-    inputs = de_tokenizer.encode(text, return_tensors="pt", padding=True).to(device)
-    outputs = de_model.generate(inputs)
-    translation = de_tokenizer.decode(outputs[0], skip_special_tokens=True)
-    return translation
-
-################################################################
-
-
 def load_daily(tokenizer, train_frac):
     #dataset = load_dataset('json', data_files={'train':'/home/sslunder24/project/chatbot/koreanmulti/data/train.json',
     #                                        'test': '/home/sslunder24/project/chatbot/koreanmulti/data/test.json',
@@ -53,11 +39,7 @@ def load_daily(tokenizer, train_frac):
     for i, dialogue in enumerate(tqdm(total_dialogues)):
         new_dialogue = []
         for utter in dialogue:
-            ######################################################################################
-            translated_text = translate(utter.strip().replace(pre_quote, quotes[1]))
-            token_list = tokenizer.tokenize(translated_text)
-            ######################################################################################
-            #token_list = tokenizer.tokenize(utter.strip().replace(pre_quote, quotes[1]))
+            token_list = tokenizer.tokenize(utter.strip().replace(pre_quote, quotes[1]))
             token_list = process_token_list(token_list)
             text = tokenizer.convert_tokens_to_string(token_list)
             new_dialogue.append(text)
@@ -98,11 +80,7 @@ def load_empathetic(tokenizer, train_frac):
         conv_id = total_conv_ids[i]
         speaker_idx = total_speaker_ids[i]
         
-        ######################################################################################
-        translated_text = translate(utter)
-        utter_modified = translated_text.strip().replace(comma_symbol, ',')
-        ######################################################################################
-        #utter_modified = utter.strip().replace(comma_symbol, ',')
+        utter_modified = utter.strip().replace(comma_symbol, ',')
         new_token_list = process_token_list(tokenizer.tokenize(utter_modified))
         text = tokenizer.convert_tokens_to_string(new_token_list)
         
@@ -152,11 +130,7 @@ def load_persona(tokenizer, train_frac):
         
         for i, utter in enumerate(dialogue):
             if utter.strip() != silence_symbol:
-                ######################################################################################
-                translated_text = translate(utter)
-                ######################################################################################
-                token_list = tokenizer.tokenize(translated_text.strip())
-                #token_list = tokenizer.tokenize(utter.strip())
+                token_list = tokenizer.tokenize(utter.strip())
                 new_token_list = process_token_list(token_list)
                 text = tokenizer.convert_tokens_to_string(new_token_list)
                 new_dialogue.append(text)
@@ -194,20 +168,12 @@ def load_blended(tokenizer, train_frac):
         dialogue = total_previous_utterance[i]
         
         for j in range(len(free_message_list)):
-            ######################################################################################
-            translated_text = translate(free_message_list[j])
-            ######################################################################################
-            token_list = process_token_list(tokenizer.tokenize(translated_text))
-            #token_list = process_token_list(tokenizer.tokenize(free_message_list[j]))
+            token_list = process_token_list(tokenizer.tokenize(free_message_list[j]))
             text = tokenizer.convert_tokens_to_string(token_list)
             dialogue.append(text)
             
             if j < len(guided_message_list):
-                ######################################################################################
-                translated_text = translate(guided_message_list[j])
-                ######################################################################################
-                token_list = process_token_list(tokenizer.tokenize(translated_text))
-                #token_list = process_token_list(tokenizer.tokenize(guided_message_list[j]))
+                token_list = process_token_list(tokenizer.tokenize(guided_message_list[j]))
                 text = tokenizer.convert_tokens_to_string(token_list)
                 dialogue.append(text)
             
