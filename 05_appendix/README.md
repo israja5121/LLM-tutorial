@@ -5,12 +5,12 @@
 ## LoRA, QLoRA (fine-tuning) 
 최근 LLM의 발전 방향은 parameter 개수와 model size를 늘려 성능을 향상하는 추세입니다. 이에 따라 training에 필요한 시간과 GPU 자원의 요구량도 이전과는 비교할 수 없이 커지고 있습니다. fine-tuning은 pretraining에 비해 적은 크기의 데이터셋을 사용하기 때문에, training에 비교적 짧은 시간이 소요됩니다. 하지만 학습시키는 parameter의 개수는 pretraining과 같습니다. 최근 트렌드에 따라, 모델의 크기가 커질수록 fine-tuning 하는 데 걸리는 시간도 길어집니다. 이러한 이유로 fine-tuning을 보다 효율적으로 수행하기 위해 만들어진 기법이 바로 LoRA(Low-Rank Adaptation)입니다.
 LoRA는 [*LoRA: Low-Rank Adaptation of Large Language Models*](https://arxiv.org/abs/2106.09685)라는 논문에서 처음 제시된 기법입니다.
-<img src="/home/sslunder13/project/SSL-LLM-tutorial/image/lora.png" alt="Alt text" width="458" height="396">
+![image](../image/lora.png)<br>
 LoRA는 PEFT(Parameter Efficient Fine Tuning) 기법 중 가장 유명하고 자주 쓰이는 방법입니다. 간단히 소개하자면, 모델의 모든 parameter를 학습시키는 대신, pretrain 된 모델의 parameter는 freeze 시키고 ‘r’만큼의 rank를 가지는 low-rank matrix A와 B만 학습시킨 후 둘을 더해 최종 모델을 완성하는 기법입니다. 이 방법을 통해 학습시켜야 할 parameter의 개수는 획기적으로 줄이는 동시에, 동등하거나 심지어 향상된 성능을 보일 수 있습니다. 자세한 이론적인 내용은 논문에서 찾을 수 있으니, lora를 사용한 모델과 그렇지 않은 모델 간의 traning 시간을 비교하는 간단한 실험을 노트북을 활용해 첨부합니다.
 
 다만, 첨부한 노트북에서는 training에 걸리는 시간을 비교할 수는 있으나 메모리 사용량을 비교하려면 kernel 재시작이 필요해 바로 비교하는 것이 불가능합니다. 빠른 이해를 위해 kernel 재시작 후 실험한 결과를 이미지로 첨부합니다.
 
-<img src="/home/sslunder13/project/SSL-LLM-tutorial/image/lora_comparison.png" alt="Alt text" width="528" height="444">
+![image](../image/lora_comparison.png)
 
 하지만 저희는 LoRA를 적극적으로 활용하지 않았습니다. LoRA 사용을 최적화하기 위해서는 새로운 최적의 하이퍼 파라미터 조합을 실험을 통해 찾아야 하는데, GPT2의 경우 모델의 size가 작아 LoRA로 얻을 수 있는 이득보다 최적의 파라미터를 찾는 데 걸리는 시간이 더 길다고 판단했기 때문입니다.
 
