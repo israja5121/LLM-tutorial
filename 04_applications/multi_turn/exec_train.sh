@@ -3,7 +3,7 @@ python src/train.py \
     --data_dir="data" \
     --train_prefix="train" \
     --valid_prefix="valid" \
-    --model_type="dbmdz/german-gpt2" \
+    --model_type="gpt2" \
     --bos_token="<bos>" \
     --sp1_token="<sp1>" \
     --sp2_token="<sp2>" \
