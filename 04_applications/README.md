@@ -8,6 +8,8 @@
 
 Single-turn chatbot의 경우, user가 입력한 user text만을 모델의 input으로 사용합니다. 모델이 지난 대화를 기억하게 하는 여러 방법 중의 하나는, user와 chatbot이 나눈 대화 내용을 sliding window 기법을 적용해 모델의 input으로 사용하는 것입니다. 가장 최근에 나눈 대화부터 몇 턴의 대화 내용을 모델의 input으로 넣어주면 대화 내용을 기억하는 듯한 효과를 낼 수 있습니다. 단, GPT2의 경우 처리할 수 있는 최대 token의 수가 1024개이기 때문에 많은 대화를 기억하지 못합니다.
 
+![image](../image/sliding_window.png)
+
 Multi-Turn chatbot의 fine-tuning에 사용한 데이터셋은 다음과 같습니다.
 
   |       Language    |   Datasets   |
