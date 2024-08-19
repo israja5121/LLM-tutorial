@@ -3,4 +3,4 @@ python src/load_data.py \
     --train_prefix="train" \
     --valid_prefix="valid" \
     --train_frac=0.85 \
-    --model_type="dbmdz/german-gpt2"
+    --model_type="gpt2"
