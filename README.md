@@ -21,3 +21,4 @@ This is repository for SSL(Semiconductor System Lab) LLM tutorial.
     - DataParallel
     - Finding Dataset
     - Error Handling
+6. **KAIST Chatbot**
