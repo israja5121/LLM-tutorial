@@ -1,0 +1,32 @@
+[
+    [
+        "I see. That was very helpful.",
+        "You're welcome! Is there anything else you're curious about?",
+        "No, that's all for now.",
+        "I see. Please visit again next time!"
+    ],
+    [
+        "I see. That was very helpful. Thank you!",
+        "Thank you for saying that. If you have more questions, feel free to ask!",
+        "I think that's all for now. Thanks.",
+        "You're welcome. I hope to see you again next time!"
+    ],
+    [
+        "I see.",
+        "Yes, that's right. Do you want any additional information?",
+        "No, I don't think I'll need anything else.",
+        "Yes, feel free to come back anytime if you have more questions!"
+    ],
+    [
+        "Hmm, I think I'll stop here.",
+        "Yes, feel free to come back anytime if you have more questions!"
+    ],
+    [
+        "Thanks. I'll stop here for now.",
+        "Understood. I hope to see you again next time!"
+    ],
+    [
+        "I want to stop.",
+        "Understood. Please visit again next time!"
+    ]
+]
